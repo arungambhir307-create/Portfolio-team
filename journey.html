@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Journey | HackX Team</title>
+<title>Our Journey | CodeYatra</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#0f172a,#020617);
-  color:#f8fafc;
-}
+:root{--primary:#00d4ff;--secondary:#00a3ff;--dark:#03060a;--light:#e6f7ff}
+body{margin:0;font-family:'Poppins','Inter',sans-serif;background:linear-gradient(180deg,#02060d 0%, #071428 60%);color:var(--light);-webkit-font-smoothing:antialiased}
+.parallax{position:relative;overflow:hidden}
+.parallax::before{content:'';position:absolute;left:-20%;top:-30%;width:140%;height:160%;background:radial-gradient(ellipse at 20% 10%, rgba(0,212,255,0.12), transparent 10%),radial-gradient(ellipse at 80% 90%, rgba(0,163,255,0.08), transparent 15%);transform:translateY(var(--parallax,0px));transition:transform 0.05s linear;pointer-events:none;z-index:0;filter:blur(40px)}
+.timeline{position:relative;z-index:2}
 
 /* HEADER */
 header{
@@ -25,9 +24,7 @@ header h1{
   font-size:3rem;
 }
 
-header h1 span{
-  color:#06b6d4;
-}
+header h1 span{color:var(--primary)}
 
 header p{
   color:#cbd5f5;
@@ -37,12 +34,7 @@ header p{
 }
 
 /* TIMELINE */
-.timeline{
-  max-width:1000px;
-  margin:70px auto;
-  padding:0 20px;
-  position:relative;
-}
+.timeline{max-width:1000px;margin:70px auto;padding:0 20px;position:relative}
 
 .timeline::before{
   display:none;
@@ -72,13 +64,7 @@ header p{
   display:none;
 }
 
-.event-box{
-  background:rgba(255,255,255,0.07);
-  padding:28px;
-  border-radius:20px;
-  box-shadow:0 0 40px rgba(6,182,212,0.35);
-  animation:fadeUp 0.9s ease;
-}
+.event-box{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:20px;box-shadow:0 0 40px rgba(6,182,212,0.35);animation:fadeUp 0.9s ease}
 
 .event-box h3{
   color:#67e8f9;
@@ -140,24 +126,15 @@ header p{
   }
 }
 /* Hidden by default */
-.event-box {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-
-/* Show when scrolled into view */
-.event-box.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+.event-box{opacity:0;transform:translateY(40px);transition:all 0.8s ease-out}
+.event-box.show{opacity:1;transform:translateY(0)}
 
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="parallax" data-speed="0.18">
   <h1>Our <span>Journey</span></h1>
   <p>
     A step-by-step journey through the AI VidyaSetu program,
@@ -166,7 +143,7 @@ header p{
   </p>
 </header>
 
-<div class="timeline">
+<div class="timeline parallax" data-speed="0.06">
 
   <div class="event">
     <div class="event-box">
@@ -262,6 +239,17 @@ header p{
 
 <script>
 const eventBoxes = document.querySelectorAll('.event-box');
+const parallaxEls = document.querySelectorAll('.parallax');
+
+function handleParallax(){
+  parallaxEls.forEach(el=>{
+    const speed = parseFloat(el.dataset.speed||0.08);
+    const rect = el.getBoundingClientRect();
+    const center = rect.top + rect.height/2 - window.innerHeight/2;
+    const move = -(center) * speed;
+    el.style.setProperty('--parallax', move + 'px');
+  });
+}
 
 function showOnScroll() {
   const triggerBottom = window.innerHeight * 0.85;
@@ -273,6 +261,7 @@ function showOnScroll() {
       box.classList.add('show');
     }
   });
+  handleParallax();
 }
 
 // Initial check
@@ -280,6 +269,7 @@ showOnScroll();
 
 // Listen to scroll
 window.addEventListener('scroll', showOnScroll);
+window.addEventListener('load', handleParallax);
 </script>
 
 </body>

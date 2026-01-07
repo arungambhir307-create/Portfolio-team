@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hackathon Team Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>CodeYatra — Team Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --primary:#4f46e5;
-  --secondary:#06b6d4;
-  --dark:#020617;
-  --light:#f8fafc;
+  --primary:#00d4ff;
+  --secondary:#00a3ff;
+  --accent:#7cfcff;
+  --dark:#03060a;
+  --light:#e6f7ff;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Poppins','Inter',sans-serif;background:linear-gradient(180deg,#02060d 0%, #071428 60%);color:var(--light);-webkit-font-smoothing:antialiased}
 
-body{
-  background:linear-gradient(135deg,#0f172a,#020617);
-  color:var(--light);
-}
+/* Parallax decorative layer */
+.parallax{position:relative;overflow:hidden}
+.parallax::before{content:'';position:absolute;left:-20%;top:-30%;width:140%;height:160%;background:radial-gradient(ellipse at 20% 10%, rgba(0,212,255,0.12), transparent 10%),radial-gradient(ellipse at 80% 90%, rgba(0,163,255,0.08), transparent 15%);transform:translateY(var(--parallax,0px));transition:transform 0.05s linear;pointer-events:none;z-index:0;filter:blur(40px)}
+.hero>.hero-content{position:relative;z-index:2}
+
+nav h2{color:var(--accent);font-family:'Montserrat',sans-serif;letter-spacing:0.6px}
 
 /* NAVBAR */
 nav{
@@ -44,22 +44,9 @@ nav ul li a{color:#cbd5f5;text-decoration:none;transition:.3s;}
 nav ul li a:hover{color:var(--secondary);}
 
 /* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:0 8%;
-  text-align:center;
-}
-.hero h1{
-  font-size:3.2rem;
-  line-height:1.2;
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp 1s forwards;
-}
-.hero h1 span{color:var(--secondary);}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:0 8%;text-align:center}
+.hero h1{font-size:3.2rem;line-height:1.2;opacity:0;transform:translateY(40px);animation:fadeUp 1s forwards}
+.hero h1 span{color:var(--primary)}
 .hero p{
   margin:20px 0;
   color:#cbd5f5;
@@ -103,25 +90,12 @@ section h2 span{color:var(--secondary);}
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:30px;
 }
-.card{
-  background:rgba(255,255,255,0.06);
-  padding:30px;
-  border-radius:22px;
-  text-align:center;
-  transition:.5s;
-  transform:translateY(40px);
-  opacity:0;
-}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:30px;border-radius:22px;text-align:center;transition:.5s;transform:translateY(40px);opacity:0}
 .card:hover{
   transform:translateY(-10px) scale(1.05);
   box-shadow:0 0 60px rgba(6,182,212,.5);
 }
-.card img{
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  margin-bottom:12px;
-}
+.card img{width:100px;height:100px;border-radius:50%;margin-bottom:12px;border:4px solid rgba(0,212,255,0.08);box-shadow:0 6px 22px rgba(0,163,255,0.08)}
 
 /* PROJECTS */
 .projects{
@@ -129,14 +103,7 @@ section h2 span{color:var(--secondary);}
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:30px;
 }
-.project{
-  background:rgba(255,255,255,0.06);
-  padding:30px;
-  border-radius:22px;
-  transition:.5s;
-  opacity:0;
-  transform:translateY(40px);
-}
+.project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:30px;border-radius:22px;transition:.5s;opacity:0;transform:translateY(40px)}
 .project:hover{
   transform:scale(1.03);
   box-shadow:0 0 50px rgba(79,70,229,.5);
@@ -153,15 +120,7 @@ section h2 span{color:var(--secondary);}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:35px;
 }
-.achievement-card{
-  padding:35px;
-  border-radius:24px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.15);
-  transition:.5s;
-  opacity:0;
-  transform:translateY(40px);
-}
+.achievement-card{padding:35px;border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.15);transition:.5s;opacity:0;transform:translateY(40px)}
 .achievement-card:hover{
   transform:translateY(-12px) scale(1.03);
   box-shadow:0 0 70px rgba(6,182,212,.6);
@@ -176,15 +135,7 @@ section h2 span{color:var(--secondary);}
   margin:40px 0;
   text-align:center;
 }
-.stat{
-  background:rgba(255,255,255,0.07);
-  padding:28px;
-  border-radius:22px;
-  box-shadow:0 0 40px rgba(6,182,212,.35);
-  transition:.4s;
-  opacity:0;
-  transform:translateY(40px);
-}
+.stat{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:22px;box-shadow:0 0 40px rgba(6,182,212,.35);transition:.4s;opacity:0;transform:translateY(40px)}
 .stat h3{font-size:2.3rem;color:#67e8f9;margin-bottom:10px;}
 .stat p{color:#cbd5f5;font-size:.95rem;}
 
@@ -195,12 +146,7 @@ section h2 span{color:var(--secondary);}
   margin-left:auto;
   margin-right:auto;
 }
-.skills h3{
-  font-size:1.8rem;
-  color:#06b6d4;
-  margin-bottom:20px;
-  text-align:center;
-}
+.skills h3{font-size:1.8rem;color:var(--primary);margin-bottom:20px;text-align:center}
 .skill{
   margin-bottom:20px;
 }
@@ -215,13 +161,7 @@ section h2 span{color:var(--secondary);}
   border-radius:10px;
   overflow:hidden;
 }
-.progress-bar{
-  height:100%;
-  background:linear-gradient(135deg,#4f46e5,#06b6d4);
-  border-radius:10px;
-  width:0;
-  transition: width 1.5s ease-in-out;
-}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:10px;width:0;transition:width 1.2s cubic-bezier(.2,.9,.2,1)}
 
 /* TOAST POPUP */
 .toast {
@@ -258,12 +198,7 @@ section h2 span{color:var(--secondary);}
 @media(max-width:900px){
   .hero{flex-direction:column;text-align:center;}
 }
-footer{
-  background:#020617;
-  color:#94a3b8;
-  padding:50px 8% 20px;
-  font-size:0.95rem;
-}
+footer{background:transparent;color:#94a3b8;padding:50px 8% 20px;font-size:0.95rem}
 
 .footer-container{
   display:grid;
@@ -314,17 +249,9 @@ footer{
   color:var(--secondary);
 }
 
-.social-icons a{
-  display:inline-block;
-  margin-right:12px;
-  font-size:1.3rem;
-  transition:0.3s;
-}
+.social-icons a{display:inline-flex;margin-right:12px;width:40px;height:40px;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border-radius:10px;transition:0.25s;color:var(--light)}
 
-.social-icons a:hover{
-  transform:scale(1.2);
-  color:var(--secondary);
-}
+.social-icons a:hover{transform:translateY(-4px) scale(1.03);color:var(--primary);box-shadow:0 6px 30px rgba(0,163,255,0.12)}
 
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,0.15);
@@ -339,7 +266,7 @@ footer{
 <body>
 
 <nav>
-  <h2>HackX Team</h2>
+  <h2>CodeYatra</h2>
   <ul>
     <li><a href="#team">Team</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -348,7 +275,7 @@ footer{
   </ul>
 </nav>
 
-<section class="hero">
+<section class="hero parallax" data-speed="0.25">
   <div class="hero-content">
     <h1>We Build <span>Impactful</span> Solutions</h1>
     <p>A hackathon-winning team focused on innovation, UI/UX, and social impact.</p>
@@ -357,7 +284,7 @@ footer{
   </div>
 </section>
 
-<section id="team">
+<section id="team" class="parallax" data-speed="0.12">
   <h2>Our <span>Team</span></h2>
   <div class="team">
     <div class="card">
@@ -384,7 +311,7 @@ footer{
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="parallax" data-speed="0.08">
   <h2>Our <span>Projects</span></h2>
   <div class="projects">
     <div class="project">
@@ -402,7 +329,7 @@ footer{
   </div>
 </section>
 
-<section id="achievements">
+<section id="achievements" class="parallax" data-speed="0.06">
   <h2>Our <span>Achievements</span></h2>
   <div class="achievements">
     <div class="achievement-card">
@@ -424,7 +351,7 @@ footer{
   </div>
 </section>
 
-<section id="stats-skills">
+<section id="stats-skills" class="parallax" data-speed="0.03">
   <h2>Our <span>Stats & Skills</span></h2>
   <div class="stats">
     <div class="stat"><h3>🥇 1st</h3><p>Hackathon Position</p></div>
@@ -435,18 +362,18 @@ footer{
 
   <div class="skills">
     <h3>Technical Skills</h3>
-    <div class="skill"><p>HTML & CSS</p><div class="progress"><div class="progress-bar" style="width:95%;"></div></div></div>
-    <div class="skill"><p>JavaScript</p><div class="progress"><div class="progress-bar" style="width:90%;"></div></div></div>
-    <div class="skill"><p>Python</p><div class="progress"><div class="progress-bar" style="width: 95%;"></div></div></div>
-    <div class="skill"><p>UI/UX Design</p><div class="progress"><div class="progress-bar" style="width:88%;"></div></div></div>
-    <div class="skill"><p>Problem Solving</p><div class="progress"><div class="progress-bar" style="width:92%;"></div></div></div>
+    <div class="skill"><p>HTML & CSS</p><div class="progress"><div class="progress-bar" data-width="95%" style="width:0;"></div></div></div>
+    <div class="skill"><p>JavaScript</p><div class="progress"><div class="progress-bar" data-width="90%" style="width:0;"></div></div></div>
+    <div class="skill"><p>Python</p><div class="progress"><div class="progress-bar" data-width="95%" style="width:0;"></div></div></div>
+    <div class="skill"><p>UI/UX Design</p><div class="progress"><div class="progress-bar" data-width="88%" style="width:0;"></div></div></div>
+    <div class="skill"><p>Problem Solving</p><div class="progress"><div class="progress-bar" data-width="92%" style="width:0;"></div></div></div>
   </div>
 </section>
 
 <footer>
   <div class="footer-container">
     <div class="footer-left">
-      <h3>HackX Team</h3>
+      <h3>CodeYatra</h3>
       <p>Building impactful software solutions for social good.</p>
     </div>
     <div class="footer-center">
@@ -461,16 +388,22 @@ footer{
     </div>
     <div class="footer-right">
       <h4>Contact Us</h4>
-      <p>Email: <a href="mailto:hackxteam@example.com">hackxteam@example.com</a></p>
+      <p>Email: <a href="mailto:hello@codeyatra.example">hello@codeyatra.example</a></p>
       <div class="social-icons">
-        <a href="#" title="LinkedIn">🔗</a>
-        <a href="#" title="GitHub">🐙</a>
-        <a href="#" title="Twitter">🐦</a>
+        <a href="#" title="LinkedIn" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.6 4.13 5.5 3 5.5 1.87 5.5 1 4.6 1 3.5 1 2.4 1.87 1.5 3 1.5c1.13 0 1.98.9 1.98 2zM.5 8.9H5.5V23H.5V8.9zM9.5 8.9h4.77v1.91h.07c.66-1.25 2.27-2.57 4.68-2.57 5 0 5.92 3.29 5.92 7.57V23h-5V16.3c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.73-2.57 3.55V23h-5V8.9z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" title="GitHub" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.6 2.99 8.48 7.14 9.86.52.1.71-.23.71-.5v-1.79c-2.9.63-3.52-1.25-3.52-1.25-.48-1.24-1.17-1.57-1.17-1.57-.96-.66.07-.65.07-.65 1.06.08 1.62 1.09 1.62 1.09.94 1.62 2.47 1.15 3.07.88.09-.69.37-1.15.67-1.41-2.32-.26-4.76-1.16-4.76-5.16 0-1.14.4-2.07 1.06-2.8-.11-.26-.46-1.3.1-2.7 0 0 .86-.28 2.82 1.06A9.8 9.8 0 0112 7.2c.87 0 1.75.12 2.56.36 1.96-1.34 2.82-1.06 2.82-1.06.56 1.4.21 2.44.1 2.7.66.73 1.06 1.66 1.06 2.8 0 4.01-2.45 4.9-4.78 5.15.38.33.72.98.72 1.98v2.95c0 .27.19.61.72.5 4.15-1.38 7.14-5.26 7.14-9.86C23.1 5.33 18.27.5 12 .5z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" title="Twitter" aria-label="Twitter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23 4.56c-.8.35-1.66.59-2.56.7a4.48 4.48 0 001.96-2.48c-.87.52-1.84.9-2.87 1.1A4.47 4.47 0 0016.11 3c-2.48 0-4.49 2.02-4.49 4.5 0 .35.04.7.11 1.03C7.69 8.39 4.07 6.4 1.67 3.14c-.38.66-.6 1.43-.6 2.24 0 1.55.79 2.92 1.99 3.73-.73-.02-1.42-.22-2.02-.55v.05c0 2.16 1.53 3.96 3.56 4.38-.37.1-.75.15-1.15.15-.28 0-.55-.03-.81-.08.55 1.74 2.15 3.01 4.05 3.05A8.98 8.98 0 010 19.54a12.66 12.66 0 006.85 2.01c8.22 0 12.72-6.81 12.72-12.72v-.58c.87-.64 1.63-1.44 2.23-2.36-.8.36-1.65.6-2.54.71z" fill="currentColor"/></svg>
+        </a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 HackX Team • All Rights Reserved
+    © 2026 CodeYatra • All Rights Reserved
   </div>
 </footer>
 
@@ -481,12 +414,26 @@ footer{
 // Toast popup
 const exploreBtn = document.getElementById('exploreBtn');
 const toast = document.getElementById('toast');
-exploreBtn.addEventListener('click',()=>{
-  toast.classList.add('show');
-  setTimeout(()=>{toast.classList.remove('show');},3000);
-});
+if(exploreBtn){
+  exploreBtn.addEventListener('click',()=>{
+    toast.classList.add('show');
+    setTimeout(()=>{toast.classList.remove('show');},3000);
+  });
+}
 
-// Animate elements on scroll
+// Parallax: moves decorative pseudo-layers inside .parallax elements
+const parallaxEls = document.querySelectorAll('.parallax');
+function handleParallax(){
+  parallaxEls.forEach(el=>{
+    const speed = parseFloat(el.dataset.speed||0.1);
+    const rect = el.getBoundingClientRect();
+    const center = rect.top + rect.height/2 - window.innerHeight/2;
+    const move = -(center) * speed;
+    el.style.setProperty('--parallax', move + 'px');
+  });
+}
+
+// Animate elements on scroll & fill progress bars
 const cards = document.querySelectorAll('.card, .project, .achievement-card, .stat');
 const progressBars = document.querySelectorAll('.progress-bar');
 
@@ -498,9 +445,12 @@ function animateOnScroll(){
   });
   progressBars.forEach(bar=>{
     const top = bar.getBoundingClientRect().top;
-    if(top < triggerBottom){bar.style.width=bar.style.width;}
+    const target = bar.dataset.width || bar.getAttribute('data-width') || bar.style.width || '80%';
+    if(top < triggerBottom){bar.style.width = target;}
   });
+  handleParallax();
 }
+
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
 </script>
