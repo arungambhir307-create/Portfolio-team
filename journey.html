@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Journey | HackX Team</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#0f172a,#020617);
+  color:#f8fafc;
+}
+
+/* HEADER */
+header{
+  padding:50px 8%;
+  text-align:center;
+}
+
+header h1{
+  font-size:3rem;
+}
+
+header h1 span{
+  color:#06b6d4;
+}
+
+header p{
+  color:#cbd5f5;
+  max-width:750px;
+  margin:15px auto;
+  font-size:1rem;
+}
+
+/* TIMELINE */
+.timeline{
+  max-width:1000px;
+  margin:70px auto;
+  padding:0 20px;
+  position:relative;
+}
+
+.timeline::before{
+  display:none;
+}
+
+/* EVENTS */
+.event{
+  width:50%;
+  padding:30px 40px;
+  position:relative;
+}
+
+.event:nth-child(odd){
+  left:0;
+  text-align:right;
+  padding-right:70px;
+}
+
+.event:nth-child(even){
+  left:50%;
+  text-align:left;
+  padding-left:70px;
+}
+
+/* remove dots completely */
+.event::before{
+  display:none;
+}
+
+.event-box{
+  background:rgba(255,255,255,0.07);
+  padding:28px;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(6,182,212,0.35);
+  animation:fadeUp 0.9s ease;
+}
+
+.event-box h3{
+  color:#67e8f9;
+  margin-bottom:10px;
+  font-size:1.15rem;
+}
+
+.event-box p{
+  color:#cbd5f5;
+  font-size:0.95rem;
+  line-height:1.6;
+}
+
+.event-box small{
+  display:block;
+  margin-top:10px;
+  color:#94a3b8;
+  font-size:0.85rem;
+}
+
+/* BACK BUTTON */
+.back{
+  text-align:center;
+  margin:70px 0;
+}
+
+.back a{
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(135deg,#4f46e5,#06b6d4);
+  padding:14px 34px;
+  border-radius:30px;
+  box-shadow:0 0 40px rgba(6,182,212,.55);
+  transition:.3s;
+}
+
+.back a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 60px rgba(6,182,212,.8);
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .timeline::before{
+    left:20px;
+  }
+
+  .event{
+    width:100%;
+    left:0 !important;
+    text-align:left;
+    padding:25px 20px 25px 60px;
+  }
+}
+/* Hidden by default */
+.event-box {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+/* Show when scrolled into view */
+.event-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Our <span>Journey</span></h1>
+  <p>
+    A step-by-step journey through the AI VidyaSetu program,
+    highlighting our learning, growth, and competitive milestones
+    from launch to national-level stages.
+  </p>
+</header>
+
+<div class="timeline">
+
+  <div class="event">
+    <div class="event-box">
+      <h3>🚀 Official Launch</h3>
+      <p>
+        AI VidyaSetu 1.0 was officially launched as a national initiative
+        aimed at empowering school students with AI and technology skills.
+      </p>
+      <small>  August 14, 2025</small>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-box">
+      <h3>📝 Registration Deadline</h3>
+      <p>
+       Our School succesfuuly Registrated for the AI Vidyasetu 1.0 
+      </p>
+      <small> • August 25, 2025</small>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-box">
+      <h3>📘 Foundation Bootcamp</h3>
+      <p>
+        A structured bootcamp focused on core AI concepts,
+        logical thinking, and foundational problem-solving skills.
+      </p>
+      
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-box">
+      <h3>🏁 Preliminary Round</h3>
+      <p>
+        The first competitive evaluation phase where teams applied
+        learning to real-world challenges.
+      </p>
+      </div>
+  </div>
+
+  <div class="event">
+    <div class="event-box">
+      <h3>⚙️ Advanced Bootcamp</h3>
+      <p>
+         Advanced hands-on sessions emphasizing real-world implementation,
+        teamwork, and innovation-driven development.
+      </p>
+      
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-box">
+      <h3>🌍 Regional Round</h3>
+      <p>
+        Junior and Senior category assessments conducted through
+        live problem-solving and technical evaluation.
+      </p>
+      
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-box">
+      <h3>🏆 Zonal Round</h3>
+      <p>
+        Offline zonal-level competitions conducted across multiple
+        cities, bringing together top-performing teams.
+      </p>
+     
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-box">
+      <h3>🥇 National Finale</h3>
+      <p>
+        Reached the National Finale by demonstrating innovation,
+        teamwork, and strong technical execution throughout the program.
+      </p>
+      
+    </div>
+  </div>
+
+</div>
+
+<div class="back">
+  <a href="index.html">← Back to Home</a>
+</div>
+
+<script>
+const eventBoxes = document.querySelectorAll('.event-box');
+
+function showOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  eventBoxes.forEach(box => {
+    const boxTop = box.getBoundingClientRect().top;
+
+    if(boxTop < triggerBottom){
+      box.classList.add('show');
+    }
+  });
+}
+
+// Initial check
+showOnScroll();
+
+// Listen to scroll
+window.addEventListener('scroll', showOnScroll);
+</script>
+
+</body>
+</html>
